@@ -3,9 +3,9 @@ import { Country } from './country';
 import { Region } from './region.type';
 
 export interface CacheStore {
-  byCapital:   TermCountries;
-  byCountries: TermCountries;
-  byRegion:    RegionCountries;
+  byCapital:   TermCountries; // termino de busqueda de capitales
+  byCountries: TermCountries; // termino de busqueda de paises
+  byRegion:    RegionCountries; // termino de busqueda de regiones
 }
 
 export interface TermCountries {

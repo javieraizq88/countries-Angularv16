@@ -20,6 +20,7 @@ export class ByCountryPageComponent implements OnInit {
     this.initialValue = this.countriesService.cacheStore.byCountries.term;
   }
 
+  // term -> palabras que se estan buscando
   searchByCountry( term: string ):void  {
     this.countriesService.searchCountry( term )
       .subscribe( countries => {

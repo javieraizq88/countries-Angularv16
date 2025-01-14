@@ -12,10 +12,11 @@ export class CountriesService {
 
   private apiUrl: string = 'https://restcountries.com/v3.1';
 
-  public cacheStore: CacheStore = {
-    byCapital:   { term: '', countries: [] },
-    byCountries: { term: '', countries: [] },
-    byRegion:    { region: '', countries: [] },
+  // term -> palabras que se estan buscando
+  public cacheStore: CacheStore = { // TODO: guarda la información de la busqueda y no se borran los resultados al cambiar de url
+    byCapital:   { term: '', countries: [] }, // va a guardar la informacion de los paises mostrados segun la busqueda que coincide con la capital
+    byCountries: { term: '', countries: [] }, // va a guardar la informacion de los paises mostrados segun la busqueda que coincide con el pais
+    byRegion:    { region: '', countries: [] }, // va a guardar la informacion de los paises mostrados segun la busqueda que coincide con la region
   }
 
   constructor(private http: HttpClient ) {
@@ -41,9 +42,7 @@ export class CountriesService {
   }
 
   searchCountryByAlphaCode( code: string ): Observable<Country | null> {
-
     const url = `${ this.apiUrl }/alpha/${ code }`;
-
     return this.http.get<Country[]>( url )
       .pipe(
         map( countries => countries.length > 0 ? countries[0]: null ),
@@ -51,9 +50,8 @@ export class CountriesService {
       );
   }
 
-
+// term -> palabras que se estan buscando
   searchCapital( term: string ): Observable<Country[]> {
-
     const url = `${ this.apiUrl }/capital/${ term }`;
     return this.getCountriesRequest(url)
         .pipe(
@@ -62,8 +60,8 @@ export class CountriesService {
         );
   }
 
+  // term -> palabras que se estan buscando
   searchCountry( term: string ): Observable<Country[]> {
-
     const url = `${ this.apiUrl }/name/${ term }`;
     return this.getCountriesRequest(url)
       .pipe(
@@ -73,7 +71,6 @@ export class CountriesService {
   }
 
   searchRegion( region: Region ): Observable<Country[]> {
-
     const url = `${ this.apiUrl }/region/${ region }`;
     return this.getCountriesRequest(url)
       .pipe(

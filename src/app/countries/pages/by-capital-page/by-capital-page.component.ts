@@ -18,9 +18,10 @@ export class ByCapitalPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.countries = this.countriesService.cacheStore.byCapital.countries;
-    this.initialValue = this.countriesService.cacheStore.byCapital.term;
+    this.initialValue = this.countriesService.cacheStore.byCapital.term; // term -> palabras que se estan buscando
   }
 
+// term -> palabras que se estan buscando
   searchByCapital( term: string ):void  {
 
     this.isLoading = true;

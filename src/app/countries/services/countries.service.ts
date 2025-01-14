@@ -56,7 +56,7 @@ export class CountriesService {
     return this.getCountriesRequest(url)
         .pipe(
           tap( countries => this.cacheStore.byCapital = { term, countries }),
-          tap( () => this.saveToLocalStorage() ),
+          tap( () => this.saveToLocalStorage() ), // guarda lo buscado y lo muestra al volver a la vista nuevamente
         );
   }
 
@@ -66,7 +66,7 @@ export class CountriesService {
     return this.getCountriesRequest(url)
       .pipe(
         tap( countries => this.cacheStore.byCountries = { term, countries }),
-        tap( () => this.saveToLocalStorage() ),
+        tap( () => this.saveToLocalStorage() ), // guarda lo buscado y lo muestra al volver a la vista nuevamente
       );
   }
 
@@ -75,7 +75,7 @@ export class CountriesService {
     return this.getCountriesRequest(url)
       .pipe(
         tap( countries => this.cacheStore.byRegion = { region, countries }),
-        tap( () => this.saveToLocalStorage() ),
+        tap( () => this.saveToLocalStorage() ), // guarda la info del btn seleccionado y lo muestra al volver a la vista nuevamente
       );
   }
 

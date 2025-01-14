@@ -23,7 +23,7 @@
           {{ country.flag }}
         </td>
         <td>
-          <img [src]="country.flags.svg" alt="ícono bandera">
+          <img [src]="country.flags.svg" [alt]="country.name.common">
         </td>
         <td>{{ country.name.common }}</td>
         <td>{{ country.capital }}</td>
@@ -38,4 +38,3 @@
   </table>
 
 </ng-template>
-

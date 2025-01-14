@@ -1,0 +1,14 @@
+img {
+    width: auto;
+    height: 25px;
+  }
+  .w-2{
+    width: 2% !important;
+  }
+  .w-4{
+    width: 4% !important
+  }
+  .jc-c{
+    display: flex;
+    justify-content: center;
+  }

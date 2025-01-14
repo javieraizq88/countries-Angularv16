@@ -1,3 +1,12 @@
 .d-inline-grid {
     display: inline-grid;
 }
+.d-flex{
+    display: flex;
+}
+.jc-c{
+    justify-content: center !important;
+}
+.ai-c{
+    align-items: center;
+}
